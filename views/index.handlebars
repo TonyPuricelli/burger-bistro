@@ -1,6 +1,9 @@
-<h1>Burger Builder</h1>
+<div class="jumbotron"> 
+	<img src="../public/assets/images/burger.png"> 
+    <h1>Burger Builder</h1>
+</div>
 <br>
-<form class="createBurger">
+<form class="createBurger" action="/burgers" method="POST">
     <div class="form-group">
         <label for="burger">Welcome, denizen, what kind of burger will you have?</label>
         <input type="text" name="name" id="burger">
@@ -16,7 +19,14 @@
                 {{#each burgers}}
                     <div>
                         {{#unless devoured}}
-                         <a href=""><img class="devour" src="./assets/img/burger.png" alt="" data-id="{{id}}" data-eaten="{{devoured}}"></a> </span>{{burger_name}}
+                            <a href=""><img class="devour" src="./assets/img/burger.png" alt="" data-id="{{id}}" data-eaten="{{devoured}}"></a>
+                            <span>{{burger_name}}</span>
+                            <span class="input-group-btn">
+                                <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
+                                    <input type="hidden" name="devoured" value="true">
+                                    <button class="btn btn-default btn-lg" type="submit">NOM</button>
+                                </form>
+                            </span>
                         {{/unless}}
                     </div>
                 {{/each}}
@@ -33,6 +43,4 @@
                 </div>
             {{/each}}
         </div>
-
-    {{!-- </div> --}}
 </div>
