@@ -1,14 +1,17 @@
 <div class="jumbotron"> 
-	<img src="../public/assets/images/burger.png"> 
-    <h1>Burger Builder</h1>
+    <div class="container display-flex">
+	    <img src="./assets/images/burger.png">
+        <h1>Burger Builder</h1>
+    </div>
 </div>
 <br>
-<form class="createBurger" action="/burgers" method="POST">
+<div class="container">
+<form class="create-update-form" action="/burgers/" method="POST">
     <div class="form-group">
         <label for="burger">Welcome, denizen, what kind of burger will you have?</label>
-        <input type="text" name="name" id="burger">
+        <input type="text" name="burger_name" id="burger">
+        <button class ="btn btn-default btn-lg" type="submit" id ="newBurger">Place my order</button>
     </div>
-    <button type="submit" id ="newBurger">Submit</button>
 </form>
 <br>
 <div class="container col-12">
@@ -22,9 +25,9 @@
                             <a href=""><img class="devour" src="./assets/images/burger.png" alt="" data-id="{{id}}" data-eaten="{{devoured}}"></a>
                             <span>{{burger_name}}</span>
                             <span class="input-group-btn">
-                                <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
+                                <form action="/burgers/{{id}}?_method=PUT" method="POST">
                                     <input type="hidden" name="devoured" value="true">
-                                    <button class="btn btn-default btn-lg" type="submit">NOM</button>
+									<button class="btn btn-default btn-lg" type="submit">NOM</button>
                                 </form>
                             </span>
                         {{/unless}}
@@ -43,4 +46,5 @@
                 </div>
             {{/each}}
         </div>
+</div>
 </div>

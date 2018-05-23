@@ -1,0 +1,26 @@
+.devour {
+    width: 30px;
+    height: 100%;
+}
+
+.display-flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.jumbotron {
+    background-color: peachpuff;
+    font-family: 'Bangers', cursive;
+}
+
+.jumbotron h1 {
+    font-size: 90px;
+}
+
+@media (max-width: 992px) {
+    .display-flex {
+        justify-content: center;
+    }
+}
