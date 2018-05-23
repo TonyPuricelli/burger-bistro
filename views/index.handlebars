@@ -19,7 +19,7 @@
                 {{#each burgers}}
                     <div>
                         {{#unless devoured}}
-                            <a href=""><img class="devour" src="./assets/img/burger.png" alt="" data-id="{{id}}" data-eaten="{{devoured}}"></a>
+                            <a href=""><img class="devour" src="./assets/images/burger.png" alt="" data-id="{{id}}" data-eaten="{{devoured}}"></a>
                             <span>{{burger_name}}</span>
                             <span class="input-group-btn">
                                 <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
