@@ -10,28 +10,25 @@
     <div class="form-group">
         <label for="burger">Welcome, denizen, what kind of burger will you have?</label>
         <input type="text" name="burger_name" id="burger">
-        <button class ="btn btn-default btn-lg" type="submit" id ="newBurger">Place my order</button>
+        <button class="btn btn-default btn-lg" type="submit" id ="newBurger">Place my order</button>
     </div>
 </form>
 <br>
 <div class="container col-12">
-    {{!-- <div class="row"> --}}
         <div class="col-6">
             <h2>Burgers Ready</h2>
             <div class="toEat">
                 {{#each burgers}}
-                    <div>
-                        {{#unless devoured}}
-                            <a href=""><img class="devour" src="./assets/images/burger.png" alt="" data-id="{{id}}" data-eaten="{{devoured}}"></a>
-                            <span>{{burger_name}}</span>
+                        {{#unless this.devoured}}
+                            <a href=""><img class="devour" src="./assets/images/burger.png" alt="" data-id="{{this.id}}.{{this.burger_name}}"></a>
+                            <span>{{this.burger_name}}</span>
                             <span class="input-group-btn">
-                                <form action="/burgers/{{id}}?_method=PUT" method="POST">
-                                    <input type="hidden" name="devoured" value="true">
-									<button class="btn btn-default btn-lg" type="submit">NOM</button>
+                                <form class="devour-form">
+                                    <input class="devour-input" input type="hidden" type="text" value={{this.id}}>
+									<button class="devour-button btn btn-default btn-lg" type="submit">NOM</button>
                                 </form>
                             </span>
                         {{/unless}}
-                    </div>
                 {{/each}}
             </div>
         </div>
@@ -39,11 +36,11 @@
         <div class="col-6">
             <h2>Burgers Eaten</h2>
             {{#each burgers}}
-                <div data-id="{{id}}" data-eaten="{{devoured}}">
-                    {{#if devoured}}
-                     {{burger_name}}
+                    {{#if this.devoured}}
+                     <div>
+                         {{this.burger_name}}
+                    </div>
                     {{/if}}
-                </div>
             {{/each}}
         </div>
 </div>

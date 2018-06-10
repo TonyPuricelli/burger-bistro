@@ -22,7 +22,7 @@ router.put("/burgers/:id", function(req, res){
 	var condition = "id = " + req.params.id;
 
 	console.log("condition ", condition);
-
+    console.log("REQUEST: " + req);
 	burger.update({
         devoured: req.body.devoured
     }, condition, function(data) {
